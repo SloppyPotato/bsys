@@ -1,7 +1,7 @@
  
 # Homework - Chapter 4
 
-1. Run process-run.py withthefollowingflags:-l 5:100,5:100. What should the CPU utilization be (e.g., the percent of time the CPU is in use?) Why do you know this? Use the -c and -p flags to see if you were right.
+## 1. Run process-run.py withthefollowingflags:-l 5:100,5:100. What should the CPU utilization be (e.g., the percent of time the CPU is in use?) Why do you know this? Use the -c and -p flags to see if you were right.
     
 100% da X:Y Y=100% flag für cpu nutzung
   ```sh
@@ -22,7 +22,7 @@
     Stats: CPU Busy 10 (100.00%)
     Stats: IO Busy  0 (0.00%)
 ```
-2. Now run with these flags: ./process-run.py -l 4:100,1:0. These flags specify one process with 4 instructions (all to use the CPU), and one that simply issues an I/O and waits for it to be done. How long does it take to complete both processes? Use -c and -p to find out if you were right.
+## 2. Now run with these flags: ./process-run.py -l 4:100,1:0. These flags specify one process with 4 instructions (all to use the CPU), and one that simply issues an I/O and waits for it to be done. How long does it take to complete both processes? Use -c and -p to find out if you were right.
    
 4 ticks 1.process mit 100% cpu nutzung + 7 ticks 2.process 2 io 5 blockende
 ```sh
@@ -44,7 +44,7 @@
   Stats: CPU Busy 6 (54.55%)
   Stats: IO Busy  5 (45.45%)
 ```
-3. Switch the order of the processes: -l 1:0,4:100. What happens now? Does switching the order matter? Why? (As always, use -c and -p to see if you were right.
+## 3. Switch the order of the processes: -l 1:0,4:100. What happens now? Does switching the order matter? Why? (As always, use -c and -p to see if you were right.
   
 io 4xcpu blocked io`
 ```sh
@@ -62,7 +62,7 @@ io 4xcpu blocked io`
   Stats: CPU Busy 6 (85.71%)
   Stats: IO Busy  5 (71.43%)
 ```
-4. We’ll now explore some of the other flags. One important flag is -S, which determines how the system reacts when a process is- sues an I/O. With the flag set to SWITCH ON END, the system will NOT switch to another process while one is doing I/O, in- stead waiting until the process is completely finished. What hap- pens when you run the following two processes (-l 1:0,4:100 -c -S SWITCH ON END), one doing I/O and the other doing CPU work?
+## 4. We’ll now explore some of the other flags. One important flag is -S, which determines how the system reacts when a process is- sues an I/O. With the flag set to SWITCH ON END, the system will NOT switch to another process while one is doing I/O, in- stead waiting until the process is completely finished. What hap- pens when you run the following two processes (-l 1:0,4:100 -c -S SWITCH ON END), one doing I/O and the other doing CPU work?
  
 wieder 11 ticks
 ```sh
@@ -84,7 +84,7 @@ wieder 11 ticks
   Stats: CPU Busy 6 (54.55%)
   Stats: IO Busy  5 (45.45%)
 ```
-5. Now, run the same processes, but with the switching behavior set to switch to another process whenever one is WAITING for I/O (-l 1:0,4:100 -c -S SWITCHONIO).Whathappensnow?Use-c and -p to confirm that you are right.
+## 5. Now, run the same processes, but with the switching behavior set to switch to another process whenever one is WAITING for I/O (-l 1:0,4:100 -c -S SWITCHONIO).Whathappensnow?Use-c and -p to confirm that you are right.
   
 wieder 7 ticks
 ```sh
@@ -102,7 +102,7 @@ wieder 7 ticks
   Stats: CPU Busy 6 (85.71%)
   Stats: IO Busy  5 (71.43%)
 ```
-6. One other important behavior is what to do when an I/O completes. With -I IO RUN LATER, when an I/O completes, the process that issued it is not necessarily run right away; rather, whatever was running at the time keeps running. What happens when you run this combination of processes? (./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH ON IO -c -p -I IO RUN LATER) Are system resources being effectively utilized?
+## 6. One other important behavior is what to do when an I/O completes. With -I IO RUN LATER, when an I/O completes, the process that issued it is not necessarily run right away; rather, whatever was running at the time keeps running. What happens when you run this combination of processes? (./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH ON IO -c -p -I IO RUN LATER) Are system resources being effectively utilized?
 
 Prozess wird erst wieder aufgerufen wenn alle nachfolgenden fertig. Nicht effizient da während weiterer IO blocks cpu anderer Prozesse laufen könnte
 ```sh
@@ -144,7 +144,7 @@ Prozess wird erst wieder aufgerufen wenn alle nachfolgenden fertig. Nicht effizi
   Stats: CPU Busy 21 (67.74%)
   Stats: IO Busy  15 (48.39%)
 ```
-7. Now run the same processes, but with -I IO RUN IMMEDIATE set, which immediately runs the process that issued the I/O. How does this behavior differ? Why might running a process that just com- pleted an I/O again be a good idea?
+## 7. Now run the same processes, but with -I IO RUN IMMEDIATE set, which immediately runs the process that issued the I/O. How does this behavior differ? Why might running a process that just com- pleted an I/O again be a good idea?
   
 wenn 1. prozess noch mehr io blocks hat kann das parallel zu cpu von anderen prozess laufen. sinnvoll das io ergebnis direkt zu verwerten?
 ```sh
@@ -176,7 +176,7 @@ wenn 1. prozess noch mehr io blocks hat kann das parallel zu cpu von anderen pro
   Stats: CPU Busy 21 (100.00%)
   Stats: IO Busy  15 (71.43%)
 ```
-8. Now run with some randomly generated processes using flags -s 1 -l 3:50,3:50 or -s 2 -l 3:50,3:50 or -s 3 -l 3:50, 3:50. See if you can predict how the trace will turn out. What hap- pens when you use the flag -I IO RUN IMMEDIATE versus that flag -I IO RUN LATER? What happens when you use the flag -S SWITCH ON IO versus -S SWITCH ON END?
+## 8. Now run with some randomly generated processes using flags -s 1 -l 3:50,3:50 or -s 2 -l 3:50,3:50 or -s 3 -l 3:50, 3:50. See if you can predict how the trace will turn out. What hap- pens when you use the flag -I IO RUN IMMEDIATE versus that flag -I IO RUN LATER? What happens when you use the flag -S SWITCH ON IO versus -S SWITCH ON END?
 
 SEED=1
 

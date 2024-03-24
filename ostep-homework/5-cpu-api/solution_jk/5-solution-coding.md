@@ -181,6 +181,7 @@ int main(int argc, char *argv[]) {
 
 
 ```
+
 ```sh
 bsys@09e654bfdad0:~/workspace/bsys/ostep-homework/5-cpu-api/solution$ ./a5
 PID(CHILD): -1
@@ -232,6 +233,7 @@ int main(int argc, char *argv[]) {
 
 
 ```
+
 ```sh
 bsys@09e654bfdad0:~/workspace/bsys/ostep-homework/5-cpu-api/solution$ ./a6
 parent
@@ -287,6 +289,7 @@ int main(int argc, char *argv[]) {
 
 
 ```
+
 ```sh
 bsys@09e654bfdad0:~/workspace/bsys/ostep-homework/5-cpu-api/solution$ ./a6
 CHILD status: exit(-1472891968)

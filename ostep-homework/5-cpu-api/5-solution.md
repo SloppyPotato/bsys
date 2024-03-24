@@ -132,7 +132,7 @@ Action: d forks f
                                │       └── f
                                └── c
 ```
-## 2. One control the simulator gives you is the fork percentage, con- trolled by the -f flag. The higher it is, the more likely the next action is a fork; the lower it is, the more likely the action is an exit. Run the simulator with a large number of actions (e.g., -a 100) and vary the fork percentage from 0.1 to 0.9. What do you think the resulting final process trees will look like as the percent- age changes? Check your answer with -c.
+## 2. One control the simulator gives you is the fork percentage, controlled by the -f flag. The higher it is, the more likely the next action is a fork; the lower it is, the more likely the action is an exit. Run the simulator with a large number of actions (e.g., -a 100) and vary the fork percentage from 0.1 to 0.9. What do you think the resulting final process trees will look like as the percent- age changes? Check your answer with -c.
 
 Bei geringer fork-percentage kurzer Baum, bei hoher Baum mit vielen Ästen/Verzweigungen -> langer Baum.
 ```sh
@@ -529,7 +529,7 @@ Process Tree?
 Action: a forks e
 Process Tree?
 ```
-## 4. One interesting thing to note is what happens when a child exits; what happens to its children in the process tree? To study this, let’s createaspecificexample:./fork.py -A a+b,b+c,c+d,c+e,c-. This example has process ’a’ create ’b’, which in turn creates ’c’, which then creates ’d’ and ’e’. However, then, ’c’ exits. What do you think the process tree should like after the exit? What if you use the -R flag? Learn more about what happens to orphaned pro- cesses on your own to add more context.
+## 4. One interesting thing to note is what happens when a child exits; what happens to its children in the process tree? To study this, let’s create a specific example:./fork.py -A a+b,b+c,c+d,c+e,c-. This example has process ’a’ create ’b’, which in turn creates ’c’, which then creates ’d’ and ’e’. However, then, ’c’ exits. What do you think the process tree should like after the exit? What if you use the -R flag? Learn more about what happens to orphaned processes on your own to add more context.
 
 FALSCH - Child Prozesse von C werden Child Prozesse des Parents von C sprich childs von B.
 
@@ -681,7 +681,7 @@ Action: a forks f
                                └── f
 
 ```
-## 6. Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By look- ing at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some dif- ferent random seeds to delve into this question.
+## 6. Finally, use both -t and -F together. This shows the final process tree, but then asks you to fill in the actions that took place. By looking at the tree, can you determine the exact actions that took place? In which cases can you tell? In which can’t you tell? Try some different random seeds to delve into this question.
 
 ```sh
 bsys@09e654bfdad0:~/workspace/bsys/ostep-homework/5-cpu-api$ ./fork.py -s 34 -t -F

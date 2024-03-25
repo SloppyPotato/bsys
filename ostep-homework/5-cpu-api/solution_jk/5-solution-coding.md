@@ -254,6 +254,21 @@ using execvpe()
 execl(), execle(), execlp(): These functions take the program name and its arguments as separate parameters. execle() also allows passing environment variables.
 
 execv(), execvp(), execvpe(): These functions take the program name and its arguments as an array of strings (argv). execvp() also searches for the program in the directories listed in the PATH environment variable. execvpe() additionally allows passing environment variables.
+
+`execl("PATH", ARG0, ARG1, ARGn, NULL)` Pfad zum Programm + Argumentliste mit `NULL` terminiert.
+
+`execle("PATH", ARG0, ARG1, ARGn, ENV[])` Pfad zum Programm + Argumentliste + Array mit Environment-Variablen mit `NULL` terminiert.
+
+`execlp(FILE_NAME, ARG0, ARG1, ARGn, NULL)` Programmname, wenn nicht `/FILENAME` wird in `PATH_ENVIRONMENT` gesucht + Argumentliste mit `NULL` terminiert.
+
+`execv("PATH", ARGS[])` Pfad zum Programm + Array mit Argumenten mit `NULL` terminiert.
+
+`exevp(FILE_NAME, ARGS[])` Programmname, wenn nicht `/FILENAME` wird in `PATH_ENVIRONMENT` gesucht + Array mit Argumenten mit `NULL` terminiert.
+
+`execvpe("PATH", ARGS[], ENV[])` Pfad zum Programm + Array mit Argumenten mit `NULL` terminiert + Array mit Environment-Variablen mit `NULL` terminiert.
+
+`ARG[0]` normalerweise Programmname!
+
 ## 5. Now write a program that uses wait() to wait for the child process to finish in the parent. What does wait() return? What happens if you use wait() in the child?
 
 ```c

@@ -5,8 +5,15 @@
 #include <fcntl.h>
 #include <sys/wait.h>
 
+volatile int is_child_finished = 0;
+
+void sigchld_callback(int sig) {
+    is_child_finished = 1;
+}
+
 int main(int argc, char* argv[]) {
     int rc = fork();
+    signal(SIGCHLD, sigchld_callback);
     if (rc < 0) {
         //fail
         return 1;
@@ -15,7 +22,7 @@ int main(int argc, char* argv[]) {
         printf("(child) hello\n");
     } else {
         // parent
-        wait(NULL);
+        while(!is_child_finished) {}
         printf("(parent) goodbye\n");
     }
     

@@ -359,7 +359,7 @@ PARENT status: exit(0)
 PARENT PID: 25400
 ```
 
-waitpid() ist nützlich um auf bestimmten Prozess zu warten. 
+waitpid() ist nützlich um auf bestimmten Prozess zu warten. STATUS ????
 ## 7. Write a program that creates a child process, and then in the child closes standard output (STDOUT FILENO). What happens if the child calls printf() to print some output after closing the descriptor?
 ```c
 #include <stdio.h>

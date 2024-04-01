@@ -259,4 +259,5 @@ time 10 - 109 -> j1 99% cpu time
 ## 6. One question that arises in scheduling is which end of a queue to add a job that just finished I/O; the -I flag changes this behavior for this scheduling simulator. Play around with some workloads and see if you can see the effect of this flag.
 
 ./mlfq.py -n 2 -q 10 -l 0,100,0:0,100,11 -i 1 -S -c       -> j0 turnaround=154 j1 turnaround=205
+
 ./mlfq.py -n 2 -q 10 -l 0,100,0:0,100,11 -i 1 -S -I -c    -> j0 turnaround=198 j1 turnaround=201 finished I/O at front of queue

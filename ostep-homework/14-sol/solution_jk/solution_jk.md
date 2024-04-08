@@ -202,3 +202,61 @@ bsys@30921e249eed:~/bsys/14-sol/solution_jk$ valgrind --leak-check=full --track-
 ==3305== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 ```
 
+# 8. Vector vs Linked List
+
+```
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./linkedlist 100000000
+
+real    0m2,543s
+user    0m1,743s
+sys     0m0,797s
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./vector 100000000
+
+real    0m0,926s
+user    0m0,894s
+sys     0m0,030s
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./linkedlist 1000000000
+Killed
+
+real    0m16,792s
+user    0m11,592s
+sys     0m5,158s
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./vector 1000000000
+
+real    0m9,355s
+user    0m8,784s
+sys     0m0,571s
+
+
+
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./linkedlist 10000
+==8110== Memcheck, a memory error detector
+==8110== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8110== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==8110== Command: ./linkedlist 10000
+==8110== 
+==8110== 
+==8110== HEAP SUMMARY:
+==8110==     in use at exit: 0 bytes in 0 blocks
+==8110==   total heap usage: 10,001 allocs, 10,001 frees, 160,016 bytes allocated
+==8110== 
+==8110== All heap blocks were freed -- no leaks are possible
+==8110== 
+==8110== For lists of detected and suppressed errors, rerun with: -s
+==8110== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./vector 10000
+==8161== Memcheck, a memory error detector
+==8161== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8161== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==8161== Command: ./vector 10000
+==8161== 
+==8161== 
+==8161== HEAP SUMMARY:
+==8161==     in use at exit: 0 bytes in 0 blocks
+==8161==   total heap usage: 16 allocs, 16 frees, 131,084 bytes allocated
+==8161== 
+==8161== All heap blocks were freed -- no leaks are possible
+==8161== 
+==8161== For lists of detected and suppressed errors, rerun with: -s
+==8161== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```

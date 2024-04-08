@@ -30,12 +30,13 @@ void delete_vector(Vector *vec) {
 void add_element(Vector *vec, int value) {
     if (vec == NULL) {
         fprintf(stderr, "Vector is NULL");
+        EXIT(1);
     }
     if (vec->size >= vec->capacity) {
         size_t new_capacity = (vec->capacity == 0) ? 1 : 2 * vec->capacity;
         int *new_data = (int *) realloc(vec->data, new_capacity * sizeof(int));
         if (new_data == NULL) {
-            return; 
+            EXIT(1); 
         }
         vec->data = new_data;
         vec->capacity = new_capacity;
@@ -48,16 +49,13 @@ int main(int argc, char *argv[]) {
 
     if (argc != 2) {
         printf("Usage: %s <number of element>\n", argv[0]);
-        return 1;
+        EXIT(1);
     }
 
-    int number_of_vectors = atoi(argv[0]);
+    int number_of_vectors = atoi(argv[1]);
 
     Vector *vec = create_vector();
-    if (vec == NULL) {
-        fprintf(stderr, "Failed to create Vector \n");
-        return 1;
-    }
+
 
     for (int i = 0; i < number_of_vectors; i++) {
         add_element(vec, i);

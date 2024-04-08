@@ -6,7 +6,7 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-typedef struct {
+typedef struct LinkedList {
     Node* head;
     int size;
 } LinkedList;
@@ -76,3 +76,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+

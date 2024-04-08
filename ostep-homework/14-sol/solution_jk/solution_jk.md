@@ -205,49 +205,46 @@ bsys@30921e249eed:~/bsys/14-sol/solution_jk$ valgrind --leak-check=full --track-
 # 8. Vector vs Linked List
 
 ```
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./linkedlist 100000000
+==61185== Memcheck, a memory error detector
+==61185== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==61185== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==61185== Command: ./linkedlist 100000000
+==61185== 
+==61185== 
+==61185== HEAP SUMMARY:
+==61185==     in use at exit: 0 bytes in 0 blocks
+==61185==   total heap usage: 100,000,001 allocs, 100,000,001 frees, 1,600,000,016 bytes allocated
+==61185== 
+==61185== All heap blocks were freed -- no leaks are possible
+==61185== 
+==61185== For lists of detected and suppressed errors, rerun with: -s
+==61185== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./vector 100000000
+==61224== Memcheck, a memory error detector
+==61224== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==61224== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==61224== Command: ./vector 100000000
+==61224== 
+==61224== Warning: set address range perms: large range [0x14e95028, 0x24e95058) (noaccess)
+==61224== Warning: set address range perms: large range [0x24e96028, 0x44e96058) (noaccess)
+==61224== 
+==61224== HEAP SUMMARY:
+==61224==     in use at exit: 0 bytes in 0 blocks
+==61224==   total heap usage: 29 allocs, 29 frees, 1,073,741,836 bytes allocated
+==61224== 
+==61224== All heap blocks were freed -- no leaks are possible
+==61224== 
+==61224== For lists of detected and suppressed errors, rerun with: -s
+==61224== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./linkedlist 100000000
 
-real    0m4,304s
-user    0m3,200s
-sys     0m1,104s
+real    0m3,817s
+user    0m3,024s
+sys     0m0,789s
 bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ time ./vector 100000000
 
-real    0m1,000s
-user    0m0,920s
-sys     0m0,081s
-
-
-
-bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./linkedlist 100000000
-==57305== Memcheck, a memory error detector
-==57305== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==57305== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==57305== Command: ./linkedlist 100000000
-==57305== 
-==57305== 
-==57305== HEAP SUMMARY:
-==57305==     in use at exit: 0 bytes in 0 blocks
-==57305==   total heap usage: 100,000,001 allocs, 100,000,001 frees, 1,600,000,016 bytes allocated
-==57305== 
-==57305== All heap blocks were freed -- no leaks are possible
-==57305== 
-==57305== For lists of detected and suppressed errors, rerun with: -s
-==57305== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-bsys@30921e249eed:~/bsys/ostep-homework/14-sol/solution_jk$ valgrind ./vector 100000000
-==57696== Memcheck, a memory error detector
-==57696== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==57696== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==57696== Command: ./vector 100000000
-==57696== 
-==57696== Warning: set address range perms: large range [0x14e95028, 0x24e95058) (noaccess)
-==57696== Warning: set address range perms: large range [0x24e96028, 0x44e96058) (noaccess)
-==57696== 
-==57696== HEAP SUMMARY:
-==57696==     in use at exit: 0 bytes in 0 blocks
-==57696==   total heap usage: 29 allocs, 29 frees, 1,073,741,836 bytes allocated
-==57696== 
-==57696== All heap blocks were freed -- no leaks are possible
-==57696== 
-==57696== For lists of detected and suppressed errors, rerun with: -s
-==57696== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+real    0m0,927s
+user    0m0,877s
+sys     0m0,050s
 ```

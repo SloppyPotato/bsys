@@ -15,7 +15,7 @@ typedef struct LinkedList {
 LinkedList* create_linked_list() {
     LinkedList* list = (LinkedList *) malloc(sizeof(LinkedList));
     if (list == NULL) {
-        EXIT(1);
+        exit(1);
     }
 
     list->head = NULL;
@@ -26,7 +26,7 @@ LinkedList* create_linked_list() {
 void delete_linked_list(LinkedList* list) {
     if (list == NULL) {
         fprintf(stderr, "Deleting list failed. List is NULL.\n");
-        EXIT(1);
+        exit(1);
     }
     Node* current = list->head;
     Node* next;
@@ -41,12 +41,12 @@ void delete_linked_list(LinkedList* list) {
 void add_element(LinkedList* list, int value) {
     if (list == NULL) {
         fprintf(stderr, "list is NULL");
-        EXIT(1);
+        exit(1);
     }
 Node* new_node = (Node *) malloc(sizeof(Node));
 if (new_node == NULL) {
     fprintf(stderr, "malloc failed");
-    EXIT(1);
+    exit(1);
 }
 new_node->data = value;
 new_node->next = list->head;
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
 
     if (argc != 2) {
         printf("Usage: %s <number of element>\n", argv[0]);
-        EXIT(1);
+        exit(1);
     }
 
     int number_of_elements = atoi(argv[1]);

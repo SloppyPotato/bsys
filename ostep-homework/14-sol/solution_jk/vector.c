@@ -11,7 +11,7 @@ typedef struct {
 Vector* create_vector() {
     Vector *vec = (Vector *) malloc(sizeof(Vector));
     if (vec == NULL) {
-        return NULL;
+        exit(1);
     }
     vec->data = NULL;
     vec->size = 0;
@@ -30,13 +30,13 @@ void delete_vector(Vector *vec) {
 void add_element(Vector *vec, int value) {
     if (vec == NULL) {
         fprintf(stderr, "Vector is NULL");
-        EXIT(1);
+        exit(1);
     }
     if (vec->size >= vec->capacity) {
         size_t new_capacity = (vec->capacity == 0) ? 1 : 2 * vec->capacity;
         int *new_data = (int *) realloc(vec->data, new_capacity * sizeof(int));
         if (new_data == NULL) {
-            EXIT(1); 
+            exit(1); 
         }
         vec->data = new_data;
         vec->capacity = new_capacity;
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 
     if (argc != 2) {
         printf("Usage: %s <number of element>\n", argv[0]);
-        EXIT(1);
+        exit(1);
     }
 
     int number_of_vectors = atoi(argv[1]);

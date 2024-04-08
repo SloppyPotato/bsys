@@ -47,10 +47,11 @@ void add_element(Vector *vec, int value) {
 int main(int argc, char *argv[]) {
 
     if (argc != 2) {
-        printf("Usage: %s <number of element>|n", argv[0]);
+        printf("Usage: %s <number of element>\n", argv[0]);
+        return 1;
     }
 
-    int number_of_vectors = atoi(argv[1]);
+    int number_of_vectors = atoi(argv[0]);
 
     Vector *vec = create_vector();
     if (vec == NULL) {

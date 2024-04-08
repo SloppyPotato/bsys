@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 typedef struct Node {
     int data;
@@ -56,7 +57,8 @@ list->size++;
 int main(int argc, char* argv[]) {
 
     if (argc != 2) {
-        printf("Usage: %s <number of element>|n", argv[0]);
+        printf("Usage: %s <number of element>\n", argv[0]);
+        return 1;
     }
 
     int number_of_elements = atoi(argv[1]);

@@ -43,15 +43,15 @@ void add_element(LinkedList* list, int value) {
         fprintf(stderr, "list is NULL");
         return;
     }
-Node* new_node = (Node *) malloc(sizeof(Node));
-if (new_node == NULL) {
-    fprintf(stderr, "malloc failed");
-    return;
-}
-new_node->data = value;
-new_node->next = list->head;
-list->head = new_node;
-list->size++;
+    Node* new_node = (Node *) malloc(sizeof(Node));
+    if (new_node == NULL) {
+        fprintf(stderr, "malloc failed");
+        return;
+    }
+    new_node->data = value;
+    new_node->next = list->head;
+    list->head = new_node;
+    list->size++;
 }
 
 int main(int argc, char* argv[]) {
